@@ -4,17 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://xh5yg02y2i20" path="res://ragdoll.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://ceaswlg6122wl" path="res://addons/godot_rl_agents/sync.gd" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="4_lquwl"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_7mycd"]
 [ext_resource type="Shader" uid="uid://d21g6sy0481ix" path="res://repeat.gdshader" id="5_272bh"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://cjqusprm2g48t" path="res://Assets/Spritesheet/atlas.tres" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://biv3xu4cv63xq" path="res://Assets/Spritesheet/grass.png" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://dk8arow8gobo4" path="res://Assets/Spritesheet/dirt.png" id="7_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(1024, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
 shader = ExtResource("5_272bh")
-shader_parameter/atlas_array = ExtResource("6_7mycd")
-shader_parameter/tile_id = 0
+shader_parameter/atlas_array = ExtResource("6_272bh")
 shader_parameter/repeat = 1.0
 shader_parameter/repeat_y = 4.0
 
@@ -23,8 +22,7 @@ size = Vector2(64, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("5_272bh")
-shader_parameter/atlas_array = ExtResource("5_7mycd")
-shader_parameter/tile_id = 3
+shader_parameter/atlas_array = ExtResource("7_5vw27")
 shader_parameter/repeat = 64.0
 shader_parameter/repeat_y = 20.0
 
