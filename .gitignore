@@ -1,0 +1,67 @@
+# ============================================================
+#  Godot RL Agents — .gitignore
+# ============================================================
+
+# ----- Godot -----------------------------------------------
+.godot/
+*.translation
+*.import
+export_presets.cfg          # contains personal export paths
+
+# Mono / C# build artifacts
+.mono/
+data_*/
+mono_crash.*.json
+*.csproj.user
+bin/
+obj/
+
+# ----- Exports & Builds ------------------------------------
+exports/
+*.apk
+*.aab
+*.ipa
+*.exe
+*.x86_64
+*.dmg
+*.pkg
+
+# Release signing — NEVER commit this
+*.keystore
+*.idsig
+*.jks
+
+# ----- Python / RL Training --------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+rl_env/                     # virtual environment
+venv/
+.venv/
+
+# Training outputs
+logs/
+checkpoints/
+#*.onnx                      # exported models (commit intentionally if needed)
+*.zip                       # packaged checkpoints
+wandb/
+runs/
+*.csv
+*.json.bak
+
+# ----- Editor & OS -----------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ----- Misc ------------------------------------------------
+*.log
+*.tmp
+my-release-key.keystore     # already caught above, belt-and-suspenders

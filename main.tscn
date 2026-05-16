@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://dyw6ssmbsf2c1"]
+
+[ext_resource type="Script" uid="uid://cyvtwhqowlo40" path="res://AIcontroller.cs" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://xh5yg02y2i20" path="res://ragdoll.tscn" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://ceaswlg6122wl" path="res://addons/godot_rl_agents/sync.gd" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="4_lquwl"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_7mycd"]
+[ext_resource type="Shader" uid="uid://d21g6sy0481ix" path="res://repeat.gdshader" id="5_272bh"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://cjqusprm2g48t" path="res://Assets/Spritesheet/atlas.tres" id="6_7mycd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(1024, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+shader = ExtResource("5_272bh")
+shader_parameter/atlas_array = ExtResource("6_7mycd")
+shader_parameter/tile_id = 0
+shader_parameter/repeat = 1.0
+shader_parameter/repeat_y = 4.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_272bh"]
+size = Vector2(64, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+shader = ExtResource("5_272bh")
+shader_parameter/atlas_array = ExtResource("5_7mycd")
+shader_parameter/tile_id = 3
+shader_parameter/repeat = 64.0
+shader_parameter/repeat_y = 20.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5vw27"]
+
+[node name="Node2D" type="Node2D" unique_id=1735157093]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1679546050]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -774.0
+offset_top = -461.0
+offset_right = 1116.0
+offset_bottom = 501.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2377072, 0.58803135, 0.68775225, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1343336860]
+zoom = Vector2(0.9, 0.9)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D" unique_id=369782981]
+offset_left = 126.0
+offset_top = 199.0
+offset_right = 488.0
+offset_bottom = 241.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1009892242]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=39722337]
+position = Vector2(0, 128)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="RagdollController" type="Node2D" parent="." unique_id=1465875194 node_paths=PackedStringArray("label")]
+position = Vector2(-250, 64)
+script = ExtResource("2_0xm2m")
+label = NodePath("../Camera2D/RichTextLabel")
+RagdollScene = ExtResource("3_1bvp3")
+onnx_model_path = "ragdoll_actor.onnx"
+reset_after = 10000
+metadata/_custom_type_script = "uid://c2x4xwifljejj"
+
+[node name="Sync" type="Node" parent="RagdollController" unique_id=1897908359]
+script = ExtResource("3_h2yge")
+control_mode = 2
+onnx_model_path = "ragdoll_actor.onnx"
+metadata/_custom_type_script = "uid://ceaswlg6122wl"
+
+[node name="CloudTexture" type="Sprite2D" parent="." unique_id=1748000952]
+texture_filter = 6
+position = Vector2(455, -258)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lquwl")
+
+[node name="CloudTexture2" type="Sprite2D" parent="." unique_id=981658409]
+texture_filter = 6
+position = Vector2(-465, -274)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lquwl")
+
+[node name="CloudTexture3" type="Sprite2D" parent="." unique_id=1376159887]
+texture_filter = 6
+position = Vector2(-149, -198)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lquwl")
+
+[node name="CloudTexture4" type="Sprite2D" parent="." unique_id=408871619]
+texture_filter = 6
+position = Vector2(220, -262)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lquwl")
+
+[node name="CloudTexture6" type="Sprite2D" parent="." unique_id=1881109862]
+texture_filter = 6
+position = Vector2(-283, -255)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lquwl")
+
+[node name="CloudTexture7" type="Sprite2D" parent="." unique_id=1178387435]
+texture_filter = 6
+position = Vector2(319, -133)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lquwl")
+
+[node name="CloudTexture5" type="Sprite2D" parent="." unique_id=1902435211]
+texture_filter = 6
+position = Vector2(4, -293)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lquwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2051016494]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lquwl")
+position = Vector2(0, 128)
+scale = Vector2(16, 64)
+texture = SubResource("PlaceholderTexture2D_272bh")
+region_rect = Rect2(0.041915894, 0.056847334, 64.95823, 63.900185)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1607103077]
+material = SubResource("ShaderMaterial_7mycd")
+position = Vector2(0, 320)
+scale = Vector2(1024, 320)
+texture = SubResource("PlaceholderTexture2D_5vw27")

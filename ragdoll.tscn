@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://xh5yg02y2i20"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(10, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(10, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(10, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(10, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(40, 40)
+
+[node name="Ragdollscene" type="Node2D" unique_id=1437949221]
+
+[node name="Left_Knee" type="PinJoint2D" parent="." unique_id=2007362337]
+position = Vector2(-15, 41)
+node_a = NodePath("../Left_Leg")
+node_b = NodePath("../Left_Feet")
+
+[node name="Right_Knee" type="PinJoint2D" parent="." unique_id=944274233]
+position = Vector2(15, 41)
+node_a = NodePath("../Right_Leg")
+node_b = NodePath("../Right_Feet")
+
+[node name="Kneck_Left" type="PinJoint2D" parent="." unique_id=1049309225]
+position = Vector2(-15, 20)
+node_a = NodePath("../Torso")
+node_b = NodePath("../Left_Leg")
+
+[node name="Kneck_Right" type="PinJoint2D" parent="." unique_id=1637403647]
+position = Vector2(15, 20)
+node_a = NodePath("../Torso")
+node_b = NodePath("../Right_Leg")
+
+[node name="Left_Feet" type="RigidBody2D" parent="." unique_id=109553838]
+position = Vector2(0, 21)
+physics_material_override = SubResource("PhysicsMaterial_h2yge")
+gravity_scale = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Feet" unique_id=1584478504]
+position = Vector2(-15, 32.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="ColorRect" type="ColorRect" parent="Left_Feet" unique_id=855628406]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 20.0
+offset_right = -10.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7252816, 0.47415358, 0.12716678, 1)
+
+[node name="Right_Leg" type="RigidBody2D" parent="." unique_id=652691505]
+physics_material_override = SubResource("PhysicsMaterial_h2yge")
+gravity_scale = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Leg" unique_id=1477281544]
+position = Vector2(15, 32.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="ColorRect" type="ColorRect" parent="Right_Leg" unique_id=335949602]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.84614, 0.37550795, 3.85046e-07, 1)
+
+[node name="Right_Feet" type="RigidBody2D" parent="." unique_id=674623556]
+position = Vector2(30, 21)
+physics_material_override = SubResource("PhysicsMaterial_h2yge")
+gravity_scale = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Feet" unique_id=638269625]
+position = Vector2(-15, 32.5)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="ColorRect" type="ColorRect" parent="Right_Feet" unique_id=120782935]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 20.0
+offset_right = -10.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7252816, 0.47415358, 0.12716678, 1)
+
+[node name="Left_Leg" type="RigidBody2D" parent="." unique_id=1757160750]
+position = Vector2(-30, 0)
+physics_material_override = SubResource("PhysicsMaterial_h2yge")
+gravity_scale = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Leg" unique_id=1677014200]
+position = Vector2(15, 32.5)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="ColorRect" type="ColorRect" parent="Left_Leg" unique_id=639871175]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.84614, 0.37550795, 3.85046e-07, 1)
+
+[node name="Torso" type="RigidBody2D" parent="." unique_id=1057934034]
+physics_material_override = SubResource("PhysicsMaterial_h2yge")
+gravity_scale = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torso" unique_id=137894446]
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="Torso" unique_id=510797658]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8285836, 0.5964881, 0.23833618, 1)
