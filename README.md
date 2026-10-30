@@ -4,6 +4,10 @@ A reinforcement-learning playground in **Godot 4** where a ragdoll agent is trai
 
 > **Note:** AI was used heavily throughout development — treat this as an experiment/learning project rather than a from-scratch implementation.
 
+## Demo
+
+![Trained ragdoll walking](docs/demo.gif)
+
 ## How it works
 
 - The scene uses the **Godot RL Agents** plugin (`addons/`) so a Godot environment can talk to a Python trainer over the usual sync interface.
