@@ -15,6 +15,16 @@ A reinforcement-learning playground in **Godot 4** where a ragdoll agent is trai
 - Training produces `ragdoll_actor.onnx`, which the `AIcontroller` (C#) loads back into the game to drive the ragdoll live — no Python needed at runtime.
 - `export.py` handles exporting a build.
 
+## Reward design
+
+Each step the agent gets:
+- forward velocity × 0.2 (move forward)
+- cos(torso angle) × 0.1 (stay upright, 1.0 when fully upright)
+- a small energy penalty (sum of squared actions × 0.001)
+- −1 and an episode reset when the torso touches the ground
+
+Weighting forward movement higher than staying upright made training faster and gave a better final walk. With the upright weight too low (0.01), the agent learned to crawl forward in strange ways, so I raised it to 0.1.
+
 ## Layout
 
 - `main.tscn`, `ragdoll.tscn` — environment + ragdoll actor scenes
