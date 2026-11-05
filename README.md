@@ -2,7 +2,7 @@
 
 A reinforcement-learning playground in **Godot 4** where a ragdoll agent is trained with PPO and the resulting ONNX model runs in-engine in real time.
 
-> **Note:** AI was used heavily throughout development — treat this as an experiment/learning project rather than a from-scratch implementation.
+> I used AI for about 40% of this project. The Godot RL Agents plugin's C# code didn't work out of the box, and AI fixed a lot of it. The energy penalty was also its idea. The balance between the forward and upright rewards and the training experiments are mine.
 
 ## Demo
 
