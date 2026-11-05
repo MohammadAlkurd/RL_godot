@@ -28,9 +28,9 @@ Weighting forward movement higher than staying upright made training faster and 
 ## Layout
 
 - `main.tscn`, `ragdoll.tscn` — environment + ragdoll actor scenes
-- `AIcontroller.cs` — inference controller (ONNX runtime)
+- `AIcontroller.cs` — agent controller: observations, actions and the reward
 - `train.py` — PPO training script
-- `src/` — environment logic (GDScript)
+- `src/` — C# controller base class (`AIController2D.cs`) and PD joint control (`Pd.cs`)
 - `addons/` — Godot RL Agents plugin
 
 ## Tech
